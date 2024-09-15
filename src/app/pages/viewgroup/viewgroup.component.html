@@ -1,0 +1,152 @@
+<div class="mt-20">
+  <div class="m-4 items-center justify-center flex">
+
+    <div class="lg:w-[800px] md:w-[700px] w-[380px] block border border-gray-700 shadow rounded-lg p-4 bg-home-bg">
+      <div class="grid grid-cols-3 ">
+        <div class="flex flex-col items-center justify-center col-span-3 md:col-span-2">
+          <h3 class="font-bold  md:text-2xl  mb-2">{{group.groupName}} </h3>
+          <p class="text-wrap text-[12px] md:text-[15px] w-80 text-center mb-3">{{group.grpPurpose}}</p>
+        </div>
+        <div class="flex items-center justify-center col-span-3 md:col-span-1">
+          <div class="flex  md:flex-col ">
+            <div class="flex items-center me-8 sm:me-0 mb-2">
+              <p class="font-semibold">Status : </p>
+              <button type="button"
+                class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 lowercase">{{group.status}}</button>
+            </div>
+            <div class="flex items-center mb-2">
+              <p class="font-semibold">Amount : <span>{{group.amount  }}</span>  </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- summary  -->
+
+  <div class="m-4 items-center justify-center flex">
+    <div class="mt-6 lg:w-[800px] md:w-[700px] w-[380px] block border border-home-bg shadow rounded-lg p-4 ">
+      <p class="font-medium">Summary ...</p>
+      <div>
+        <p>The name of the group is <span class="uppercase font-medium">{{group.groupName}}</span></p>
+        <p>The purpose of this group is <span class="font-medium">{{group.grpPurpose}}</span> </p>
+        <p>The total <span class="font-medium">amount</span> spent by the group is <span
+            class="font-medium">{{group.amount}}</span> , covering all the purchases or expenses</p>
+        <p>The group's current status is <span class="font-medium lowercase">{{group.status}}</span> </p>
+
+        <p>So far, <span class="font-medium">{{group.payedMembers}}</span> payments have been made by the members.</p>
+        <p>There are <span class="font-medium">{{count}}</span> members actively participating in this group.</p>
+        <p>Your individual contribution for this shopping event is <span class="font-medium">{{(group.amount)/count  | number}}</span> .</p>
+        <p>Your payment status is <span class="font-medium">{{group.status}}</span></p>
+      </div>
+
+    </div>
+  </div>
+
+ <!-- your payment status  -->
+
+ <div class="m-3 items-center justify-center flex ">
+  <div class="block border border-home-bg rounded-lg p-5 lg:w-[800px] md:w-[700px] w-[380px]">
+      <div class="items-center justify-center flex flex-col md:flex-row">
+
+        <div *ngIf="myMember.paymentStatus === 'PENDING' " class="items-center justify-center flex flex-col md:flex-row">
+          <p class="mb-2">Heads up! You still have a pending payment in this group. Clearing this up will help keep the balances fair and square for everyone. Please settle it as soon as you can.</p>
+          <button  type="button" class="mx-auto text-white bg-red-800 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Complete </button>
+
+        </div>
+        <div *ngIf="myMember.paymentStatus === 'COMPLETED' " class="items-center justify-center flex flex-col md:flex-row">
+          <p class="mb-2">Payment completed! Your account is now settled in this group. We appreciate your prompt action. You're all set—no outstanding dues!</p>
+          <button  type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Done</button>
+        </div>
+
+
+      </div>
+  </div>
+ </div>
+
+  <!-- group members  -->
+  <div class="m-4 items-center justify-center flex">
+    <div class="mt-2 w-full md:w-[1000px] block   p-4 ">
+      <p class="font-medium m-3">
+        Group members
+      </p>
+
+      <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 gap-2">
+
+         @for (m of groupMembers; track $index) {
+          <div class="items-center justify-center flex ">
+            <div class="w-[600px] block border border-home-bg p-4 shadow rounded-lg">
+                <div class="flex flex-shink items-center justify-between">
+                  <div>
+                    <p>{{m.name}}</p>
+                    <p>fsid : {{m.fsid}} </p>
+                    <p>Share : {{m.shareamount | number}}</p>
+                  </div>
+                  <div>
+                    <!-- @if (appUserId===group.userId && m.userId === appUserId ) {
+                      <p>Status : <button type="button"
+                        class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">{{m.status}}</button></p>
+                    } -->
+
+                    <p>Status : <button type="button"
+                      class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">{{m.status}}</button></p>
+
+                      @if (appUserId===group.userId ) {
+                        @if (m.status ==='PENDING') {
+                          <p class="mt-4">
+                            <button type="button"
+                            class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" (click)="updatePaymentStatus(m.id)">mark completed</button>
+                          </p>
+                        }
+                        @if (m.status==="COMPLETED") {
+                          <p class="mt-4">
+                            <button type="button"
+                            class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" (click)="updatePaymentStatus(m.id)">completed</button>
+                          </p>
+                        }
+
+
+                      }
+
+                      @if (appUserId!==group.userId && m.userId==appUserId) {
+                        <p class="mt-4">
+                          <button type="button"
+                          class="  bg-green-100 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  rounded-lg text-sm px-2 py-1 ms-4  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">completed</button>
+                        </p>
+                      }
+                  </div>
+                </div>
+            </div>
+          </div>
+         }
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- comments and updates -->
+
+  <div class="items-center justify-center flex m-4 ">
+    <div class=" w-full md:w-[800px] block p-4 ">
+
+      <p class="font-medium text-center"> Comments and updates </p>
+
+      <div class="m-4">
+
+        @for (item of comments; track $index) {
+          <p class="text-center ">{{item.message}}</p>
+        }
+
+      </div>
+      </div>
+  </div>
+
+</div>

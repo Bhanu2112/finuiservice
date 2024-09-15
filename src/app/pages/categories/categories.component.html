@@ -1,0 +1,379 @@
+<div class="mt-16 ">
+</div>
+<div class="flex m-3 items-center justify-center p-4 ">
+  <div
+    class="max-w-sm w-full m-6 p-6 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div>
+      <!-- Vertical Line -->
+      <div class="relative">
+
+      </div>
+      <div class="flex items-center justify-center mb-1">
+        <div class="w-[160px] items-center justify-center flex">
+          <div class="text-center ">
+            <h4 class="uppercase font-bold text-home-bg">Expense Categories</h4>
+            <p class="text-featurech-bg">Total : 5</p>
+          </div>
+        </div>
+        <div class="h-20 w-[1px] bg-featurech-bg"></div>
+        <div class="w-[160px] items-center justify-center flex">
+          <div class="text-center">
+            <h4 class="uppercase font-bold text-home-bg">Income Categories</h4>
+            <p class="text-featurech-bg">Total : 3</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Line -->
+      <div class="flex flex-col items-center justify-center">
+
+        <div class="w-full  h-[2px] bg-featurech-bg"></div>
+        <div class="w-[160px] mt-4 items-center justify-center flex">
+          <div class="text-center">
+            <h4 class="uppercase font-bold text-home-bg">All Categories</h4>
+            <p class="text-featurech-bg">Total : 7</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Accounts -->
+
+<div class="p-4">
+  <!-- Grid wrapper -->
+  <div class="grid lg:m-10  gap-4  grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+    <!-- Columns -->
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">create</h2>
+        </div>
+        <div class="">
+          <div class=" mt-2 items-center justify-center flex">
+            <button (click)="openCatDialog()" type="button"
+              class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Create
+              Category</button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="flex justify-end">
+            <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">expense</h2>
+          </div>
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">total : $ 7874743</p>
+
+          </div>
+        </div>
+
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button (click)="openCatDialog()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">expense</h2>
+        </div>
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">total : $ 7874743</p>
+
+          </div>
+        </div>
+
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button (click)="openCatDialog()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">income</h2>
+        </div>
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">total : $ 7874743</p>
+
+          </div>
+        </div>
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button (click)="openCatDialog()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">expense</h2>
+        </div>
+
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border  border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">total : $ 7874743</p>
+
+          </div>
+        </div>
+
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class="  text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button (click)="openCatDialog()"  type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">expense</h2>
+        </div>
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">balance : $ 7874743</p>
+
+          </div>
+        </div>
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon (click)="openCatDialog()" [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">expense</h2>
+        </div>
+        <div class="flex">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">balance : $ 7874743</p>
+
+          </div>
+        </div>
+
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes() " type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon (click)="openCatDialog()" [icon]="faPenTOSquare"></fa-icon></button>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2">income</h2>
+        </div>
+        <div class="flex ">
+          <div>
+            <div class="w-12 h-12 bg-red-500 border border-home-bg rounded-lg">
+            </div>
+          </div>
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">Banu</h2>
+            <p class="text-home-bg">balance : $ 7874743</p>
+
+          </div>
+        </div>
+
+        <div class=" mt-2 items-center justify-end flex">
+          <button (click)="viewDetailes()" type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+           <fa-icon [icon]="faEye"></fa-icon>  </button>
+          <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button type="button"
+            class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <fa-icon (click)="openCatDialog()" [icon]="faPenTOSquare"></fa-icon></button>
+
+        </div>
+
+      </div>
+    </div> -->
+
+
+    @for (category of categories; track $index) {
+
+    <div>
+      <div
+        class="m-1 lg:w-[350px] p-4 bg-white border border-home-bg rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+        <div class="flex justify-end">
+          <h2 class="border border-dashed border-home-bg rounded-lg py-1 px-2 lowercase">{{category.categoryType}}</h2>
+        </div>
+        <div class="flex justify-between items-center">
+
+          <div class="ml-6 mb-2">
+
+            <h2 class="uppercase text-home-bg font-bold">{{category.categoryName}}</h2>
+            <!-- <p class="text-home-bg">balance : $ {{category.}}</p> -->
+
+          </div>
+          <div class=" mt-2 items-center justify-end flex">
+            <button (click)="viewDetailes()" type="button"
+              class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+             <fa-icon [icon]="faEye"></fa-icon>  </button>
+            <button type="button"
+              class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+              <fa-icon [icon]="faTrash"></fa-icon></button>
+              <button type="button"
+              class=" text-white bg-home-bg hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2 px-3 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+              <fa-icon (click)="openCatDialog()" [icon]="faPenTOSquare"></fa-icon></button>
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    }
+
+    <!-- Columns -->
+  </div>
+  <!-- Grid wrapper -->
+</div>
+
+
+
+
+
+@if (!openDialog) {
+  <app-view-category-dialog [closeDialog]="openDialog" (pcloseDialog)="handleEvent($event)"></app-view-category-dialog>
+}
+<!-- <app-view-category-dialog [closeDialog]="openDialog" (pcloseDialog)="handleEvent($event)"></app-view-category-dialog> -->
+
+
+
+@if (openAddCategoryDialog) {
+  <app-add-category (closeCatDialog)=" closeCatDialog($event)"></app-add-category>
+}

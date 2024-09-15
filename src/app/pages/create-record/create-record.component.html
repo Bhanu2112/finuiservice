@@ -1,0 +1,121 @@
+<div class="mt-16">
+  <div class="flex items-center justify-center">
+    <div>
+      <div class="block max-w-xl p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="mb-2 mt-4 text-center text-2xl font-bold tracking-tight text-home-bg dark:text-home-bg">
+          Keep Note down every transaction
+        </h5>
+        <p class="font-normal mt-4 text-center text-gray-700 dark:text-gray-400">
+          Effortlessly track and manage your transactions with our intuitive
+          system. Stay organized, monitor spending, and maintain a clear record
+          of your financial activities to achieve better control over your
+          finances.
+        </p>
+      </div>
+
+      <div class="mt-6">
+        <div>
+          <div class="m-5">
+            <h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">
+              What is your transaction type ?
+            </h3>
+            <ul class="grid grid-cols-2 w-full gap-6 md:grid-cols-2">
+              <li>
+                <input  type="radio" (click)="selectIncomeType('INCOME')" id="hosting-small" name="hosting" value="hosting-small" class="hidden peer"
+                  required />
+                <label for="hosting-small"
+                  class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div class="block">
+                    <div class="w-full text-sm font-semibold">INCOME</div>
+                  </div>
+                  <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9" />
+                  </svg>
+                </label>
+              </li>
+              <li>
+                <input type="radio" (click)="selectExpenseType('EXPNESE')" id="hosting-big" name="hosting" value="hosting-big" class="hidden peer" />
+                <label for="hosting-big"
+                  class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div class="block">
+                    <div class="w-full text-sm font-semibold">EXPNESE</div>
+                  </div>
+                  <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9" />
+                  </svg>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <form [formGroup]="recordForm" (ngSubmit)="submitRecordForm()">
+            <div class="m-4">
+              <div class="grid grid-cols-2 gap-2 md:gap-5">
+                <div>
+                  <p class="text-center text-gray-500 mb-2">Account</p>
+                  <div
+                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+
+                    <select id="accounts" formControlName="account_id" name="account_id" class="w-full bg-white hover:text-gray-600 hover:bg-gray-100">
+                      <option value="0" disabled >Select an account</option> <!-- Placeholder option -->
+                      <option *ngFor="let act of accounts" [value]="act.id" class="p-3">
+                        {{ act.accountName }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-center text-gray-500 mb-2">Category</p>
+                  <div
+                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <select id="accounts" formControlName="category_id" name="accounts" class="w-full bg-white hover:text-gray-600 hover:bg-gray-100">
+                      <option value="0" disabled>Choose category</option>
+                      @for (cat of categories; track $index) {
+                      <option [value]="cat.id" class="p-3">
+                        {{ cat.categoryName }}
+                      </option>
+                      }
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-2 m-4">
+                  <div class="w-full" >
+                    <input type="datetime-local" id="datetime" name="datetime" formControlName="localdate" [ngModel]="currentDatetime"
+                    class="border-2 w-full border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:border-blue-500" />
+                  </div>
+
+                  <div class="w-full">
+
+                    <input type="number" name="amount" id="" placeholder=" Enter amount" formControlName="amount"
+                    class="border-2 w-full text-center p-2 border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-blue-500">
+                  </div>
+
+              </div>
+
+              <div class="grid grid-cols-1">
+                <textarea name="" id="" formControlName="reason" placeholder="enter note"  class="border-2 w-full text-center p-2 border-gray-300  rounded-lg shadow-sm focus:outline-none focus:border-blue-500"></textarea>
+              </div>
+
+            </div>
+
+
+            <div class="flex justify-center items-center">
+              <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

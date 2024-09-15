@@ -1,0 +1,143 @@
+<div class="items-center  justify-center flex">
+  <div class="grid grid-cols-1 md:grid-cols-3 mt-10 ">
+    <div class="m-3">
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{months[currentMonth]}} {{currentYear}} Income: </h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Income : {{totalIncome}}</p>
+
+      </div>
+
+    </div>
+    <div class="m-3">
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{months[currentMonth]}} {{currentYear}} Expenses:</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total expenses : {{totalExpenses}}.</p>
+
+      </div>
+    </div>
+
+    <div class="m-3">
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{months[currentMonth]}} {{currentYear}} Cash flow:</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total cash flow : {{totalIncome-totalExpenses}}</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="flex items-center justify-center">
+      <div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" m-5 flex items-center justify-center">
+
+
+  <div class="mr-5">
+    <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" (click)="goToPreviousMonth()">Previous</button>
+  </div>
+
+  <div>
+    <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{months[currentMonth]}} {{currentYear}}</button>
+  </div>
+  <div class="ml-5">
+    <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" (click)="goToNextMonth()">Next</button>
+  </div>
+
+
+</div>
+<div>
+  <div class="items-center mt-10  justify-center flex">
+
+
+    <div class="relative   w-[1150px] overflow-x-auto border border-1">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-home-bg text-white text-center dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Category name
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Amount
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Expense Type
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Date
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Account
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Reason
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Action
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+           @for (record of recordsArray; track $index) {
+
+
+
+            <div class=" m-5 w-full ">
+              <div class="text-center w-full ">
+                <div>
+                  <div class="flex-grow border-t border-gray-400"></div>
+                  <span class="flex-shrink  text-md mx-4 font-bold text-gray-700">{{record.date}} </span>
+                  <div class="flex-grow border-t border-gray-400"></div>
+                </div>
+
+              </div>
+            </div>
+
+            @for (item of record.records; track $index) {
+              <tr
+              class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{item.category.categoryName}}
+              </th>
+
+              <td class="px-6 py-4 font-medium">
+                {{item.amount}}
+              </td>
+              <td class="px-6 py-4">
+                {{item.recordType}}
+              </td>
+              <td class="px-6 py-4">
+                {{item.date}}
+              </td>
+              <td class="px-6 py-4 ">
+                {{item.account.accountName}}
+              </td>
+              <td class="px-6 py-4">
+                {{item.reason}}
+              </td>
+              <td class="px-6 py-4 ">
+                <a href="#" class=" m-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <a href="#" class="m-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+              </td>
+            </tr>
+            }
+
+           }
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
