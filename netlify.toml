@@ -1,7 +1,3 @@
-[build]
-  command = "ng build --prod"
-  publish = "dist/uiservice/browser"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
