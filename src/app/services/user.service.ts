@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get<Namefsid>(`https://finuserservie.onrender.com/user/namefsid/${memberId}`)
   }
   getUserByEmail(email:string):Observable<User | null>{
-    return this.http.get<User>(`https://finuserservie.onrender.com/http://localhost:8085/user/findbyemail/${email}`).pipe(
+    return this.http.get<User>(`https://finuserservie.onrender.com/user/findbyemail/${email}`).pipe(
       catchError(() => {
         return of(null)
       })
