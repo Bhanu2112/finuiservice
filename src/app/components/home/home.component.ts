@@ -10,4 +10,11 @@ import { FeatureCardsComponent } from "../feature-cards/feature-cards.component"
 })
 export class HomeComponent {
 
+  isAuthenticated = false
+  ngOnInit(){
+    let userId =  localStorage.getItem('userId')
+    if(userId!==null){
+      this.isAuthenticated = true
+    }
+  }
 }
