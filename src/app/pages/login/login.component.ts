@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 import { AuthReqest } from '../../models/auth-reqest';
 import { AuthService } from '../../services/auth.service';
@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

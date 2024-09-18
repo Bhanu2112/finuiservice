@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-sidenav',
@@ -19,12 +21,29 @@ export class SidenavComponent {
   pageUrl=''
   userMenu = true
 
-  constructor(private router:Router){
+  userDetailes:User = new User()
+
+  isAuthenticated = false
+
+  constructor(private router:Router, private userService:UserService){
+
 
   }
 
   ngOnInit(){
       // this.changeTheme()
+
+     let userId =  localStorage.getItem('userId')
+     if(userId!==null){
+      this.isAuthenticated= true
+      this.userService.getProfile().subscribe(data => {
+console.log(data);
+
+
+        this.userDetailes = data
+      })
+     }
+
 
       console.log(this.router.url);
 
@@ -64,9 +83,19 @@ export class SidenavComponent {
 
 
   getProfile(){
-    
+
   }
 
+  handelLogout(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    alert("Logged out successfully")
+  }
+
+
+  login(){
+    this.router.navigate(['/login'])
+  }
 
 
 }
