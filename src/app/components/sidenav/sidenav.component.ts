@@ -63,6 +63,10 @@ export class SidenavComponent {
   }
 
 
+  getProfile(){
+    
+  }
+
 
 
 }

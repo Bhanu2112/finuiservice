@@ -9,6 +9,7 @@ import { Namefsid } from '../models/namefsid';
 })
 export class UserService {
 
+  userId = localStorage.getItem('userId') || 'null'
   constructor(private http:HttpClient) { }
 
   getGroupMemberDetailes(memberId:number){
@@ -20,5 +21,9 @@ export class UserService {
         return of(null)
       })
     );
+  }
+
+  getProfile():Observable<User>{
+    return this.http.get<User>(`https://finuserservie.onrender.com/user/findbyid/${this.userId}`)
   }
 }
